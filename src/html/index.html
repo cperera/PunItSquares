@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <head>
 	<title>Pun It Squares</title>
+	<script type="text/javascript" src="../javascript/main.js"></script>
 </head>
 <body>
-	<input id="user_input" type="text"></input>
-	<button>Find Puns!</button>
+	<div>
+		<input id="user_input" type="text"></input>
+		<button onClick="PunIt.putTextInOutput('output', PunIt.findPunsForTextInput('user_input'))">Find Puns!</button>
+	</div>
+	<div>
+		<p id="output">
+		</p>
+	</div>
 </body>
