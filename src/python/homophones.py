@@ -2,11 +2,18 @@ import sys
 import json
 import pronouncing
 
+from flask import request
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/homophone", methods=["POST"])
+def processRequest():
+    return json.dumps(homophones(request.get_json()["word"]))
+
 """
 @param: word, a lowercase string
 @returns: a list of homophones for word
 """
-
 def homophones(word):
     phoneList = pronouncing.phones_for_word(word)
     results = []
@@ -36,6 +43,8 @@ arg2 : ["homophone1","homophone2"]
 
 """
 if __name__ == '__main__':
+    app.run()
+    """
     if len(sys.argv) > 1:
         result = {}
         for arg in sys.argv[1:]:
@@ -43,3 +52,4 @@ if __name__ == '__main__':
         print(json.dumps(result))
     else:
         main()
+    """

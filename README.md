@@ -7,4 +7,4 @@ To see the HTML interface, simply open the `src/html/index.html` file in a web b
 
 To use the HTML interface, you'll need to start up a webserver. Navigate to the `python` directory and use the command:
 
-    python -m SimpleHTTPServer
+    python homophones.py
