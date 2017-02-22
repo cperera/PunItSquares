@@ -37,11 +37,9 @@ arg2 : ["homophone1","homophone2"]
 """
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        print("{")
+        result = {}
         for arg in sys.argv[1:]:
-            print(json.dumps(arg) + ":")
-            print(json.dumps(homophones(arg)))
-            print(",")
-        print("}")
+            result[arg] = homophones(arg)
+        print(json.dumps(result))
     else:
         main()
