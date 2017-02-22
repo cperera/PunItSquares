@@ -1,0 +1,14 @@
+#!/usr/local/bin/python
+import sys
+import json
+
+from flask import request
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/homophone", methods=["POST"])
+def homophone():
+    return request
+
+if __name__ == "__main__":
+    app.run()
