@@ -45,10 +45,9 @@ if this script is called with arguments, return JSON for each arg's homophones
 { arg1 : ["homophone1","homophone2","homophone3",
 arg2 : ["homophone1","homophone2"]
 
+After processing, start up a web server
 """
 if __name__ == '__main__':
-    app.run()
-    """
     if len(sys.argv) > 1:
         result = {}
         for arg in sys.argv[1:]:
@@ -56,4 +55,4 @@ if __name__ == '__main__':
         print(json.dumps(result))
     else:
         main()
-    """
+    app.run()
