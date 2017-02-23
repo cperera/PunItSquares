@@ -3,8 +3,12 @@ import json
 import pronouncing
 
 from flask import request
+from flask_cors import CORS, cross_origin
+
 from flask import Flask
 app = Flask(__name__)
+
+CORS(app)
 
 @app.route("/homophone", methods=["POST"])
 def processRequest():

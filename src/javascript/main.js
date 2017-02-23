@@ -12,15 +12,21 @@ let PunIt = function() {
 		putPunsFromInputToOutput: function(input, output) {
 			let word = $("#" + input).val();
 
-			$.post(
-				"http://127.0.0.1:5000/homophone",
-				{
-					"word": word
-				},
+			$.ajax({
+				type: "POST",
+				url: "http://127.0.0.1:5000/homophone",
+				data: JSON.stringify({
+					"word" : word
+				}),
+				headers: {
+					"Content-Type": "application/json",
+					"Accept": "application/json",
+					"Access-Control-Allow-Origin": "*"
+				}
+			}).done(
 				function(results, _, __) {
 					$("#" + output).text(results);
-				},
-				"json"
+				}
 			);
 		},
 		/**
